@@ -1,0 +1,161 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User{
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  username String?
+  name String?
+  email String? @unique
+  emailVerified DateTime?
+  image String?
+  hashedPassword String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  campaignIds String[] @db.ObjectId
+  campaign Campaign[] @relation(fields: [campaignIds], references: [id])
+
+  conversationIds String[] @db.ObjectId
+  conversations Conversation[] @relation(fields: [conversationIds], references: [id])
+
+  seenMessageIds String[] @db.ObjectId
+  seenMessages Message[] @relation("Seen", fields: [seenMessageIds], references: [id])
+
+  accounts Account[]
+  messages Message[]
+}
+
+model Account{
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  userId String @db.ObjectId
+  type String
+  provider String
+  providerAccountId String
+  refresh_token String? @db.String
+  access_token String? @db.String
+  expires_at Int?
+  token_type String?
+  scope String?
+  id_token String? @db.String
+  session_state String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Conversation{
+  id            String @id @default(auto()) @map("_id") @db.ObjectId
+
+  contactedUsername  String?
+  createdAt     DateTime @default(now())
+  lastMessageAt DateTime @default(now())
+  name          String?
+  isGroup       Boolean?
+
+  messagesIds   String[] @db.ObjectId
+  messages      Message[]
+
+  userIds       String[] @db.ObjectId
+  users         User[] @relation(fields: [userIds], references: [id])
+
+  campaignId    String? @db.ObjectId
+  campaign      Campaign? @relation(fields: [campaignId], references: [id])
+
+  instagramAccountId String? @db.ObjectId
+  instagramAccount InstagramAccount? @relation(fields: [instagramAccountId], references: [id])
+
+}
+
+model Message{
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  body String?
+  image String?
+  createdAt DateTime @default(now())
+  onInstagram Boolean?
+
+  campaignId String? @db.ObjectId
+  seenIds String[] @db.ObjectId
+  seen User[] @relation("Seen", fields: [seenIds], references: [id])
+
+  conversationId String @db.ObjectId
+  conversation Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+
+  senderId String @db.ObjectId
+  sender User @relation(fields: [senderId], references: [id], onDelete: Cascade)  
+}
+
+
+model Campaign{
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  campaignName String
+  status String @default("Upcoming")
+  message String
+  bio String
+  nbMessages Int
+  link String @default("")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  selected Boolean @default(false)
+
+  country             String?
+  keyWords            String[]
+  followersMin        Int?
+  followersMax        Int?
+  businessTypes       String[]
+  duration            String?
+  price               Int?
+  providedAccounts    String[]
+
+  userIds String[] @db.ObjectId 
+  users User[] @relation(fields: [userIds], references: [id])
+
+  conversationIds String[] @db.ObjectId
+  conversations  Conversation[]
+  sentMessages  SentMessage[]
+
+}
+
+  model SentMessage {
+    id                    String   @id @default(auto()) @map("_id") @db.ObjectId
+    createdAt             DateTime @default(now())
+    campaignId            String   @db.ObjectId
+    instagramAccountId    String   @db.ObjectId
+    targetUsername        String?   
+    campaign              Campaign @relation(fields: [campaignId], references: [id])
+    instagramAccount      InstagramAccount @relation(fields: [instagramAccountId], references: [id])
+  }
+
+model InstagramAccount {
+  id              String   @id @default(auto()) @map("_id") @db.ObjectId
+  campaignId      String?  @db.ObjectId
+  conversationIds String[] @db.ObjectId
+  updatedAt       DateTime?
+  username        String?
+  password        String?
+  campaignName    String?
+  followers       Int?
+  following       Int?
+  publications    Int?
+  Names           String?
+  status          String?
+  image           String?
+  bio             String?
+  gender          String?
+  location        String?
+  public          String?
+  twoFaTokens     String?
+
+
+  conversations Conversation[]
+  sentMessages SentMessage[]
+}
