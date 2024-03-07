@@ -2,7 +2,7 @@
 import getCampaigns from "../actions/getCampaigns";
 import CampaignBlock from "./components/CampaignBlock";
 import Link from "next/link";
-import { useCampaignsContext } from "../context/CampaignContext";
+import { useCampaignsContext } from "../context/CampaignsContext";
 
 
 interface SettingsProps {

@@ -1,6 +1,6 @@
 import getCampaigns from "../actions/getCampaigns";
 import Sidebar from "../components/sidebar/Sidebar";
-import { CampaignsWrapper } from "../context/CampaignContext";
+import { CampaignsWrapper } from "../context/CampaignsContext";
 
 export default async function SettingsLayout({
     children
