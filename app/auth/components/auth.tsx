@@ -3,11 +3,10 @@
 import axios from "axios";
 import { useState, useCallback, useEffect } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
-import Input from "@/app/components/input";
 import Button from "@/app/components/button";
 import AuthSocialButton from '../../components/authSocialButton';
 import { BsGithub, BsGoogle } from "react-icons/bs"
-import styles from "./styles/auth.module.css"
+import Input from "@/app/components/input";
 import { toast } from "react-hot-toast";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";

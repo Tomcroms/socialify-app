@@ -2,7 +2,6 @@
 
 import clsx from 'clsx';
 import { FieldErrors, FieldValues, UseFormRegister} from "react-hook-form";
-import Auth from '../(site)/components/auth';
 import styles from './styles/components.module.css';
 
 interface InputProps{
