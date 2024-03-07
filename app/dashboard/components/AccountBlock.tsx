@@ -8,9 +8,9 @@ interface Account {
     username?: string | null;
     password?: string | null;
     campaignName?: string | null;
-    followers?: string | null;
-    following?: string | null;
-    publications: string;
+    followers?: number | null;
+    following?: number | null;
+    publications: number | null;
     names?: string | null;
     status?: string | null;
     image?: string | null;

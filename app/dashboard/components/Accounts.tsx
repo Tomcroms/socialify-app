@@ -34,7 +34,7 @@ const Accounts: React.FC<TotalAnswersProps> = ( {instagramAccounts }) => {
             overflow-auto
         "
         >
-            <h4 className="absolute top-4 left-4">My "sales" accounts</h4>
+            <h4 className="absolute top-4 left-4">My &apos;sales&apos; accounts</h4>
             {instagramAccounts.map((account) => (
                 <AccountBlock key={account.id} account={account} />
             ))}

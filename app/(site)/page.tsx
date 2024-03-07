@@ -37,7 +37,7 @@ const Home2 = () => {
                     <div className="rounded-2xl shadow-xl bg-customLightGray p-10 flex flex-col items-center">
                         <img src="/images/icon_accounts.png" alt="icon" className="w-full"/>
                         <h3 className="my-6">1 - Connect your accounts</h3>
-                        <p className="text-lg text-center">Connect your instagram sales accounts. If you don't have any, we can create and setup them for you.</p>
+                        <p className="text-lg text-center">Connect your instagram sales accounts. If you don&apos;t have any, we can create and setup them for you.</p>
                     </div>
                     <div className="rounded-2xl shadow-xl bg-customLightGray p-10 flex flex-col items-center">
                         <img src="/images/icon_contact.png" alt="icon" className="w-full"/>
@@ -67,7 +67,7 @@ const Home2 = () => {
                         </div>
                         <div>
                             <h3>Increase volume</h3>
-                            <p className="text-lg w-3/4">Use multiple 'sales' accounts to increase your prospecting volume.</p>
+                            <p className="text-lg w-3/4">Use multiple &apos;sales&apos; accounts to increase your prospecting volume.</p>
                         </div>
                     </div>
                 </div>
@@ -90,7 +90,7 @@ const Home2 = () => {
                 </button>
                 <h2 className="text-white">Trusted by Founders and C-level.</h2>
                 <h1 className="font-[50px] text-white">“</h1>
-                <p className="text-white w-1/2 max-w-[800px] text-center">It transformed my outreach strategy! Drowning in repetitive tasks and struggling with lead management previously, Sociallify's easy account management, automated messaging, and centralized platform helped me generate 5x more leads, increase conversion rates by 30%, and contribute to Splead sales growth.</p>
+                <p className="text-white w-1/2 max-w-[800px] text-center">It transformed my outreach strategy! Drowning in repetitive tasks and struggling with lead management previously, Sociallify&apos;s easy account management, automated messaging, and centralized platform helped me generate 5x more leads, increase conversion rates by 30%, and contribute to Splead sales growth.</p>
                 <img src="/images/yoann.png" alt="yoann picture" className="mt-8 rounded-full w-1/12"/>
                 <h3 className="text-white mt-4">Yoann</h3>
             </section>

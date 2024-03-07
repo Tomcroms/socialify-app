@@ -4,7 +4,7 @@ import CampaignForm from "./components/CampaignForm";
 import CampaignPreview from "./components/CampaignPreview";
 import { useState } from "react";
 
-const createNewCampaign = () => {
+const CreateNewCampaign = () => {
 
     const [newCampaignData, setNewCampaignData] = useState({ message: '' });
     const handleNewCampaignDataChange = (newData: { message: string }) => {
@@ -26,4 +26,4 @@ const createNewCampaign = () => {
 } 
 
 
-export default createNewCampaign;
+export default CreateNewCampaign;

@@ -1,7 +1,7 @@
 import Sidebar from "../components/sidebar/Sidebar";
 import getUsers from '../actions/getUsers';
 import UserList from './components/UserList';
-import { CampaignWrapper } from "../context/CampaignContext";
+import { CampaignsWrapper } from "../context/CampaignContext";
 import getCampaigns from "../actions/getCampaigns";
 
 export default async function UsersLayout({
@@ -17,9 +17,9 @@ export default async function UsersLayout({
         <Sidebar>
             <div className="h-full">
                 <UserList items={users} />
-                <CampaignWrapper campaigns={campaigns || []}>
+                <CampaignsWrapper campaigns={campaigns || []}>
                     {children}
-                </CampaignWrapper>
+                </CampaignsWrapper>
                 
             </div>
         </Sidebar>

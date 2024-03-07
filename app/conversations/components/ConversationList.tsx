@@ -12,7 +12,7 @@ import { useSession } from 'next-auth/react';
 import { pusherClient } from '@/app/libs/pusher';
 import PusherClient from 'pusher-js';
 import { FullConversationType } from "@/app/types";
-import { useCampaignContext } from '@/app/context/CampaignContext';
+import { useCampaignsContext } from '@/app/context/CampaignContext';
 
 interface ConversationListProps {
     initialItems: FullConversationType[];
