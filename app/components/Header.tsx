@@ -1,6 +1,10 @@
+import getCurrentUser from '@/app/actions/getCurrentUser';
+import HeaderButton from "./HeaderButton";
 
+const Header = async () => {
 
-const Header = () => {
+    const currentUser = await getCurrentUser();
+
     return (
         <header className="w-full z-20 absolute flex px-[10%] py-4 items-center">
             
@@ -11,7 +15,7 @@ const Header = () => {
                 <a href="#pricing" className="block py-4 px-10">Pricing</a>
                 <a href="#blog" className="block py-4 px-10">Blog</a>
             </nav>
-            <button className="bg-white rounded-[40px] py-4 px-10 font-semibold">Sign In</button>
+            <HeaderButton currentUser={currentUser!} />
         </header>
     )
 }

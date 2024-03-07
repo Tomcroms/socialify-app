@@ -6,7 +6,7 @@ const Blog = () => {
         <>
             <section className="px-[10%] py-32 w-full">
                 <img src="/images/article_photo.png" alt="photo" className="w-2/3 mx-auto rounded-[40px]"/>
-                <h1 className="mt-10">How to use instagram DMs to grow your business</h1>
+                <h1 className="mt-10 w-2/3 mx-auto">How to use instagram DMs to grow your business</h1>
             </section>
             <section className="px-[10%] py-20 border-t border-gray-200 flex flex-col items-center">
                 <div className="w-1/2">
