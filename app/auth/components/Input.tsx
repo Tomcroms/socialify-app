@@ -2,7 +2,6 @@
 
 import clsx from 'clsx';
 import { FieldErrors, FieldValues, UseFormRegister} from "react-hook-form";
-import styles from './styles/components.module.css';
 
 interface InputProps{
     label: string, 
@@ -25,7 +24,7 @@ const Input: React.FC<InputProps> = ({  //react function component "Input"
 }) => {
     return (
         // <div className={styles.div_auth}>
-        <div className={styles.div_auth}>
+        <div className="w-full p-10">
             <label className="bloc text-sm font-medium leading-6 text-gray-900" htmlFor={id}>
                 {label}
             </label>

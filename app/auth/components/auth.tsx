@@ -6,7 +6,7 @@ import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import Button from "@/app/components/button";
 import AuthSocialButton from '../../components/authSocialButton';
 import { BsGithub, BsGoogle } from "react-icons/bs"
-import Input from "../../components/Input";
+import Input from "./Input";
 import { toast } from "react-hot-toast";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
