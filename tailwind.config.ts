@@ -12,6 +12,7 @@ const config: Config = {
         customBlue: '#5570F1',
         customLightBlue: '#EFECFF',
         customGray: '#EDEFFB',
+        customGray2: '#F4F5FA',
         customLightGray: '#F9F9F9',
         customYellow: '#FFEECC',
       },

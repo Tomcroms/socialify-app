@@ -20,7 +20,6 @@ const Accounts: React.FC<TotalAnswersProps> = ( {instagramAccounts }) => {
         className="
             container
             relative
-            h-40
             w-full
             bg-white
             rounded-xl
@@ -30,8 +29,7 @@ const Accounts: React.FC<TotalAnswersProps> = ( {instagramAccounts }) => {
             gap-4
             grid
             grid-cols-2
-            auto-rows-max
-            overflow-auto
+            overflow-hidden
         "
         >
             <h4 className="absolute top-4 left-4">My &apos;sales&apos; accounts</h4>

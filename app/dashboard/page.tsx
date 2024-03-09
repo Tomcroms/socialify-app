@@ -17,7 +17,7 @@ const Dashboard = () => {
     
     return (
         <>
-            <header className="flex items-center justify-center h-20 bg-white ml-40">
+            <header className="flex items-center justify-center h-20 bg-white ml-40 absolute w-[calc(100%-160px)] z-10">
                 <div>
                     {currentCampaign ? (
                         <h2>Dashboard: { currentCampaign.campaignName }</h2>
@@ -27,7 +27,7 @@ const Dashboard = () => {
 
                 </div>
             </header>
-            <div className="h-full ml-40 p-4 bg-gray-200">
+            <div className="ml-40 p-4 bg-customGray2 pb-6 pt-24 h-screen">
                 <section className="w-full mb-8 flex gap-3">
                     <TotalMessages totalMessagesSent={ totalMessagesSent } currentCampaign={currentCampaign}/>
                     <TotalAnswers currentCampaign={ currentCampaign } />
@@ -38,8 +38,8 @@ const Dashboard = () => {
                         <Summary last7DaysSentMessages={last7DaysSentMessages} last7DaysConversations={last7DaysConversations} />
                         <Accounts instagramAccounts={instagramAccounts}/>
                     </section>
-                    <section className="w-1/3 flex justify-center items-center rounded-xl bg-white relative">
-                        <h4 className="absolute top-4 left-4">My favorite conversations</h4>
+                    <section className="w-1/3 flex flex-col flex-grow rounded-xl p-4 bg-white">
+                        <h4 className="absolute">My favorite conversations</h4>
                     </section>
                 </main>
             </div>

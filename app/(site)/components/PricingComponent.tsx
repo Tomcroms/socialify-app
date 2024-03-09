@@ -15,7 +15,9 @@ const PricingComponent = () => {
                 <div className="lightBlueButton w-min mb-10">
                     <h4>Pricing</h4>
                 </div>
-                <h2 >{nbMessages} messages/mo</h2>
+                <div className="flex items-center">
+                    <h2>{nbMessages}</h2><h3 className="ml-4 text-gray-600">messages/mo</h3>
+                </div>
                 <input
                     type="range"
                     min="1000"
@@ -36,19 +38,20 @@ const PricingComponent = () => {
                     </div>
                 </div>
                 <div className="flex flex-col items-center">
-                    <div className="mt-8">
+                    <div className="mt-5">
                         <span>Precise </span><span className="font-bold text-black">targeting</span>
                     </div>
-                    <div className="mt-8">
-                        <span className="font-bold text-black">Customized </span><span>and </span><span className="font-bold text-black">automatized </span><span>outreach</span>
+                    <div className="mt-5">
+                        <span className="font-bold text-black">Customized </span><span>and </span><span className="font-bold text-black">automatized </span>
                     </div>
-                    <div className="mt-8">
+                    <div><span>outreach</span></div>
+                    <div className="mt-5">
                         <span className="font-bold text-black">Instant results </span><span>(Day 1)</span>
                     </div>
-                    <div className="mt-8">
+                    <div className="mt-5">
                         <span>Analytics</span>
                     </div>
-                    <div className="mt-8">
+                    <div className="mt-5">
                         <span>Support 7/7 days</span>
                     </div>
                     <button className="bg-white rounded-2xl px-6 py-3 font-bold mt-16 shadow-md">
@@ -65,19 +68,20 @@ const PricingComponent = () => {
                     </div>
                 </div>
                 <div className="flex flex-col items-center">
-                    <div className="mt-8">
+                    <div className="mt-5">
                         <span>Precise </span><span className="font-bold text-black">targeting</span>
                     </div>
-                    <div className="mt-8">
-                        <span className="font-bold text-black">Customized </span><span>and </span><span className="font-bold text-black">automatized </span><span>outreach</span>
+                    <div className="mt-5">
+                        <span className="font-bold text-black">Customized </span><span>and </span><span className="font-bold text-black">automatized </span>
                     </div>
-                    <div className="mt-8">
+                    <div><span>outreach</span></div>
+                    <div className="mt-5">
                         <span className="font-bold text-black">Instant results </span><span>(Day 1)</span>
                     </div>
-                    <div className="mt-8">
+                    <div className="mt-5">
                         <span>Analytics</span>
                     </div>
-                    <div className="mt-8">
+                    <div className="mt-5">
                         <span>Support 7/7 days</span>
                     </div>
                     <button className="bg-black text-white rounded-2xl px-6 py-3 font-bold mt-16 shadow-md">

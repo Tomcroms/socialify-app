@@ -17,12 +17,13 @@ const TotalMessages: React.FC<TotalMessagesProps> = ({ totalMessagesSent, curren
     return ( 
         <div 
         className=" 
-            h-32
+            h-full
             w-full
             bg-white
             rounded-xl
             relative
             p-4
+            shadow-md
         "
         >
             <div className="flex w-full items-center">

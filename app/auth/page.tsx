@@ -5,7 +5,7 @@ import styles from "../styles/test.module.css"
 export default function AuthPage() {
   return (
     <>
-      <div className="mt-36 w-3/4 mx-auto p-8 bg-white rounded-xl">
+      <div className="w-full h-screen bg-customGray2 flex justify-center items-center">
         <Auth/>
       </div>
     </>

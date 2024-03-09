@@ -24,7 +24,7 @@ interface Account {
 // Utilisez l'interface pour typer le prop `account`
 const AccountBlock: React.FC<{ account: Account }> = ({ account }) => {
     return (
-        <div className="border rounded-lg p-4 shadow-lg">
+        <div className="border rounded-lg p-4 shadow-lg h-min">
             <div className="flex items-center">
                 <FaRegUser className="w-6 h-6" />
                 <h4 className="ml-5">{account.username} {account.names}</h4>

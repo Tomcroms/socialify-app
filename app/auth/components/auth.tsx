@@ -106,15 +106,18 @@ const Auth = () => {
     }
 
     return (
-        <section className='w-full'>
+        <section className='w-4/12 bg-white rounded-[30px] p-8'>
+            <img src="/images/S_logo.png" alt="logo" className="mx-auto mb-6"/>
+            <h3 className="mb-4 text-center">Welcome back!</h3>
+            <p className="mb-4 text-center">Login to your account</p>
             <div className='w-3/4 m-auto'>
                 <form onSubmit={handleSubmit(onSubmit)} className="w-full mt-4">   
                     {variant == 'REGISTER' && (
-                        <Input id="name" label="Name" register={register} errors={errors} disabled={isLoading} />
+                        <Input id="name" placeholder="Full Name" label="Name" register={register} errors={errors} disabled={isLoading} />
                     )}
-                    <Input id="email" label="Email address" register={register} errors={errors} disabled={isLoading}/>
-                    <Input id="password" label="Password" register={register} errors={errors} disabled={isLoading}/>
-                    <div>
+                    <Input id="email" placeholder="Email Address" label="Email address" register={register} errors={errors} disabled={isLoading}/>
+                    <Input id="password" placeholder="Password" label="Password" register={register} errors={errors} disabled={isLoading}/>
+                    <div className="mt-8">
                         <Button disabled={isLoading} fullWidth type="submit">
                             {variant == "LOGIN" ? "Sign in" : "REGISTER"}
                         </Button>
@@ -125,16 +128,16 @@ const Auth = () => {
                 <div className="relative">
                     <div className="absolute inset-0 flex items-center"></div>
                     <div className="w-full border-t border-gray-300"></div>
-                    <div className="relative flex justify-center text-sm">
+                    {/* <div className="relative flex justify-center text-sm">
                         <span className="bg-white px-2 text-gray-500">
                             Or continue with
                         </span>
-                    </div>
+                    </div> */}
                 </div>
-                <div className="mt-6 flex gap-2">
+                {/* <div className="mt-6 flex gap-2">
                         <AuthSocialButton icon={BsGithub} onClick={() => socialAction('github')}/>
                         <AuthSocialButton icon={BsGoogle} onClick={() => socialAction('google')}/>
-                </div>
+                </div> */}
                 <div className="flex gap-2 justify-center text-sm mt-6 px-2 text-gray-500">
                     <p>
                         {variant == "LOGIN" ? "New to socialify?" : "Already have an account?"}

@@ -33,12 +33,6 @@ const useRoutes = () => {
             icon: IoSettingsOutline,
             active: pathname == "/settings"
         },
-        {
-            label: "Create a campaign",
-            href: "/newCampaign",
-            icon: FaRegSquarePlus,
-            active: pathname == "/newCampaign"
-        },
     ], [pathname, conversationId]);
 
     const secondaryRoutes = useMemo(() => [
