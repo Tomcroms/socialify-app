@@ -45,7 +45,6 @@ export default async function DashboardLayout({
 
     return (
         <Sidebar>
-            <div className="h-screen">
                 <CurrentCampaignWrapper 
                     currentCampaign={currentCampaign || null}
                     totalMessagesSent={totalMessagesSent} 
@@ -55,7 +54,6 @@ export default async function DashboardLayout({
                 >
                     {children}
                 </CurrentCampaignWrapper>
-            </div>
         </Sidebar>
     )
 }; 

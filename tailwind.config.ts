@@ -24,6 +24,11 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      fontFamily: {
+        sans: ['Nunito', 'sans-serif'],
+        serif: ['Nunito', 'serif'],
+        mono: ['Nunito', 'monospace'],
+      },
     },
   },
   plugins: [],

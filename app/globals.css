@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap');
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,19 +12,26 @@ body,
   height: 100%;
 }
 
+
+*{
+  font-family: "Nunito";
+}
+
 h1{
-  font-weight: 800;
+  font-weight: 900;
   font-size: 55px;
+  color: #242331;
+  line-height: 65px;
 }
 
 
 h2{
-  font-size: 36px;
-  font-weight: 700;
+  font-size: 32px;
+  font-weight: 800;
 }
 
 h3{
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
 }
 
@@ -41,7 +51,7 @@ h5{
 }
 
 p{
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
   color: #969698;
 }
@@ -54,8 +64,8 @@ p{
 
 span{
   color: #969698;
-  font-size: 18px;
-  font-weight: 400;
+  font-size: 14px;
+  font-weight: 300;
 }
 
 
