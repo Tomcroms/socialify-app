@@ -59,7 +59,7 @@ const Home2 = () => {
             </section>
 
             <section id="leads" className="py-8 px-[10%] mt-60 flex items-center relative">
-                <div className="w-7/12 p-10 pr-32 bg-customLightGray rounded-3xl shadow-lg">
+                <div className="w-9/12 p-10 pr-32 bg-customLightGray rounded-3xl shadow-lg">
                     <h2 className="text-[35px] mb-10 w-2/3">Manage all your leads in one place</h2>
                     <p className="mb-8 w-2/3">No more switching between different accounts to track your leads and follow up with them.</p>
                     <div className="flex">
