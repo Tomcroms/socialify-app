@@ -7,6 +7,7 @@ import { useMemo, useState } from "react";
 import { Conversation, User } from '@prisma/client';
 import Link from 'next/link';
 import useOtherUser from "@/app/hooks/useOtherUser";
+import Avatar from '@/app/components/Avatar';
 
 
 interface HeaderProps { //permet de définir ce qu'on va passer à l'élément Header, ici <Header conversation = {...} />
@@ -18,13 +19,6 @@ interface HeaderProps { //permet de définir ce qu'on va passer à l'élément H
 const Header: React.FC<HeaderProps> = ({ conversation }) => {
 
     const otherUser = useOtherUser(conversation);
-    const statusText = useMemo(() => {
-        if (conversation.isGroup) {
-          return `${conversation.users.length} members`;
-        }
-    
-        return "Active"
-    }, [conversation]);
 
     return (
         <div 
@@ -61,11 +55,15 @@ const Header: React.FC<HeaderProps> = ({ conversation }) => {
                 ) : (
                     <Avatar user={otherUser} />
                 )} */}
-                <div className="flex flex-col">
-                    <div>{conversation.name || otherUser.name}</div>
-                    <div className="text-sm font-light text-neutral-500">
-                        {statusText}
+                <div className="flex">
+                    <Avatar user={otherUser} />
+                    <div className='ml-8'>
+                        <div>{conversation.name || otherUser.name}</div>
+                        <div className="text-sm font-light text-neutral-500">
+                            Instagram user
+                        </div>
                     </div>
+
                 </div>
             </div>
             <HiEllipsisHorizontal

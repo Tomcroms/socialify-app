@@ -37,7 +37,7 @@ const TotalMessages: React.FC<TotalMessagesProps> = ({ totalMessagesSent, curren
             </div>
             <div className="flex items-center mt-3">
                 <ProgressBar progress={nbMessagesSent}/>
-                <h3 className="ml-4">{ nbMessages }</h3>
+                <h3 className="ml-4">{ totalMessagesSent }</h3>
             </div>
             <p>{nbMessagesSent}% completed</p>
         </div>

@@ -35,14 +35,14 @@ const TotalAnswers: React.FC<TotalAnswersProps> = ({ currentCampaign }) => {
             </div>
             <h3 className="mt-3">{nbAnswers}</h3>
             <p>{conversionRate}% conversion rate</p>
-            <div className="bg-customGray h-20 w-2 rounded absolute bottom-4 right-28">
-                <div className="bg-customBlue h-12 w-2 rounded absolute bottom-2 right-0"></div>
+            <div className="bg-customGray h-20 w-3 rounded-2xl absolute bottom-4 right-[116px]">
+                <div className="bg-customBlue h-12 w-3 rounded-2xl absolute bottom-2 right-0"></div>
             </div>
-            <div className="bg-customGray h-24 w-2 rounded absolute bottom-4 right-24">
-                <div className="bg-customBlue h-14 w-2 rounded absolute bottom-7 right-0"></div>
+            <div className="bg-customGray h-24 w-3 rounded-2xl absolute bottom-4 right-[98px]">
+                <div className="bg-customBlue h-14 w-3 rounded-2xl absolute bottom-7 right-0"></div>
             </div>
-            <div className="bg-customGray h-24 w-2 rounded absolute bottom-4 right-20">
-                <div className="bg-customBlue h-16 w-2 rounded absolute bottom-5 right-0"></div>
+            <div className="bg-customGray h-24 w-3 rounded-2xl absolute bottom-4 right-[80px]">
+                <div className="bg-customBlue h-16 w-3 rounded-2xl absolute bottom-5 right-0"></div>
             </div>
         </div>
     );
