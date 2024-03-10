@@ -12,7 +12,7 @@ const Home2 = () => {
                 backgroundSize: '70%',
                 backgroundRepeat: 'no-repeat'
             }}>
-                <div className="px-[10%] absolute top-60 flex items-center w-full gap-32">
+                <div className="px-[10%] absolute top-44 flex items-center w-full gap-32">
                     <div className="w-1/2">
                         <h1 className="mb-4 max-w-[500px]">The #1 outreach tool on Instagram</h1>
                         <p className="mb-10 max-w-[480px] text-[18px]">Build your contact list, personalize on alarge scale and send messages that capture new customers.</p>
@@ -59,8 +59,8 @@ const Home2 = () => {
             </section>
 
             <section id="leads" className="py-8 px-[10%] mt-60 flex items-center relative">
-                <div className="w-9/12 p-10 pr-32 bg-customLightGray rounded-3xl shadow-lg">
-                    <h2 className="text-[35px] mb-10 w-2/3">Manage all your leads in one place</h2>
+                <div className="w-8/12 p-10 pr-32 bg-customLightGray rounded-3xl shadow-lg">
+                    <h2 className="text-[35px] mb-10 w-9/12">Manage all your leads in one place</h2>
                     <p className="mb-8 w-2/3">No more switching between different accounts to track your leads and follow up with them.</p>
                     <div className="flex">
                         <div className="bg-customBlue flex items-center justify-center w-20 h-20 min-w-20 min-h-20 rounded-xl mr-10">

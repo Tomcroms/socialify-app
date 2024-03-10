@@ -29,7 +29,7 @@ const PricingComponent = () => {
                 />
                 <p className="text-lg text-center">We guarentee the delivery of messages, as well as accurate targeting.</p>
             </div>
-            <div className="bg-customLightGray px-4 py-20 w-1/3 rounded-3xl shadow-lg">
+            <div className="bg-customLightGray px-4 py-12 w-1/3 rounded-3xl shadow-lg">
                 <h3>Basic</h3>
                 <div className="w-full mt-8 py-4 flex flex-col items-center border-t border-b border-gray-200">
                     <h3>€{0.4 * nbMessages} / month</h3>
@@ -54,12 +54,12 @@ const PricingComponent = () => {
                     <div className="mt-5">
                         <span>Support 7/7 days</span>
                     </div>
-                    <button className="bg-white rounded-2xl px-6 py-3 font-bold mt-16 shadow-md">
+                    <button className="bg-white rounded-2xl px-6 py-3 font-bold mt-10 shadow-md">
                         Get started
                     </button>
                 </div>
             </div>
-            <div className="bg-customLightGray px-4 py-20 w-1/3 rounded-3xl shadow-lg">
+            <div className="bg-customLightGray px-4 py-12 w-1/3 rounded-3xl shadow-lg">
                 <div className="flex items-center"><h3 className="mr-auto">Premium</h3><p>Save 25%</p></div>
                 <div className="w-full mt-8 py-4 flex flex-col items-center border-t border-b border-gray-200">
                     <h3>€{0.3*nbMessages} / month</h3>
@@ -84,7 +84,7 @@ const PricingComponent = () => {
                     <div className="mt-5">
                         <span>Support 7/7 days</span>
                     </div>
-                    <button className="bg-black text-white rounded-2xl px-6 py-3 font-bold mt-16 shadow-md">
+                    <button className="bg-black text-white rounded-2xl px-6 py-3 font-bold mt-10 shadow-md">
                         Get started
                     </button>
                 </div>
