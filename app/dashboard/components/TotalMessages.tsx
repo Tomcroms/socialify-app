@@ -11,7 +11,7 @@ interface TotalMessagesProps {
 
 const TotalMessages: React.FC<TotalMessagesProps> = ({ totalMessagesSent, currentCampaign }) => {
 
-    const nbMessagesSent = currentCampaign ? totalMessagesSent / currentCampaign.nbMessages : 0; 
+    const nbMessagesSent = currentCampaign ? totalMessagesSent / currentCampaign.nbMessages * 100 : 0; 
     const nbMessages = currentCampaign ? currentCampaign.nbMessages : 0;
 
     return ( 

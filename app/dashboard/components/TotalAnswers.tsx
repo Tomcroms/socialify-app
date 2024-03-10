@@ -10,7 +10,7 @@ const TotalAnswers: React.FC<TotalAnswersProps> = ({ currentCampaign }) => {
     const nbAnswers = currentCampaign? currentCampaign.conversationIds.length : 0;
 
     // A CHANGER !!!!!
-    const conversionRate = currentCampaign? (currentCampaign.conversationIds.length / currentCampaign?.nbMessages) : 0;
+    const conversionRate = currentCampaign? (currentCampaign.conversationIds.length / currentCampaign?.nbMessages * 100) : 0;
 
     return ( 
         <div 
