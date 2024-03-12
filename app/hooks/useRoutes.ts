@@ -27,12 +27,12 @@ const useRoutes = () => {
             icon: HiChat,
             active: pathname == "/conversations" || !!conversationId
         },
-        {
-            label: "Settings",
-            href: "/settings",
-            icon: IoSettingsOutline,
-            active: pathname == "/settings"
-        },
+        // {
+        //     label: "Settings",
+        //     href: "/settings",
+        //     icon: IoSettingsOutline,
+        //     active: pathname == "/settings"
+        // },
     ], [pathname, conversationId]);
 
     const secondaryRoutes = useMemo(() => [

@@ -2,15 +2,16 @@ import { AiOutlineMessage } from "react-icons/ai";
 import { Campaign } from "@prisma/client";
 
 interface TotalAnswersProps{
+    totalMessagesSent: number;
     currentCampaign?: Campaign | null;
 }
 
-const TotalAnswers: React.FC<TotalAnswersProps> = ({ currentCampaign }) => {
+const TotalAnswers: React.FC<TotalAnswersProps> = ({ totalMessagesSent, currentCampaign }) => {
 
     const nbAnswers = currentCampaign? currentCampaign.conversationIds.length : 0;
 
     // A CHANGER !!!!!
-    const conversionRate = currentCampaign? (currentCampaign.conversationIds.length / currentCampaign?.nbMessages * 100) : 0;
+    const conversionRate = currentCampaign? (currentCampaign.conversationIds.length / totalMessagesSent * 100).toFixed(2) : 0;
 
     return ( 
         <div 

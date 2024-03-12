@@ -6,22 +6,33 @@ import TotalAnswers from "./components/TotalAnswers";
 import Audience from "./components/Audience";
 import { useCurrentCampaignContext } from "../context/CurrentCampaignWrapper";
 import { CiLock } from "react-icons/ci";
+import CampaignSelection from "./components/CampaignSelection";
+import Link from "next/link";
 
 const Dashboard = () => {
 
     const { currentCampaign, totalMessagesSent, instagramAccounts, last7DaysConversations, last7DaysSentMessages } = useCurrentCampaignContext();
-    
+
     return (
         <div className="w-full pl-40">
-            <header className="flex items-center justify-center h-20 bg-white w-[calc(100%-160px)] z-10">
+            <header className="flex items-center px-6 h-20 bg-white w-[calc(100%-160px)] z-10">
                 <div>
                     {currentCampaign ? (
-                        <h2>Dashboard: { currentCampaign.campaignName }</h2>
+                        <div className="flex items-center">
+                            <h3>Dashboard: </h3>
+                            <CampaignSelection />
+                        </div>
+
                     ) : (
-                        <h2>Dashboard: Please create a campaign</h2>
+                        <CampaignSelection />
                     )}
 
                 </div>
+                <Link className="ml-20" href="/settings/createNewCampaign">
+                    <div className="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer text-center">
+                        Create New Campaign
+                    </div>
+                </Link>
             </header>
             <section className="h-full relative">
                 {!currentCampaign && (
@@ -33,7 +44,7 @@ const Dashboard = () => {
                 <div className="p-4 bg-customGray2 pb-6 h-full">
                     <section className="w-full mb-8 flex gap-3">
                         <TotalMessages totalMessagesSent={ totalMessagesSent } currentCampaign={currentCampaign}/>
-                        <TotalAnswers currentCampaign={ currentCampaign } />
+                        <TotalAnswers totalMessagesSent={ totalMessagesSent } currentCampaign={ currentCampaign } />
                         <Audience />
                     </section>
                     <main className="w-full flex gap-4">

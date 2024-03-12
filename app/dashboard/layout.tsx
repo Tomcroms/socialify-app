@@ -7,6 +7,7 @@ import getLast7DaysConversations from "@/app/actions/getLast7DaysConversations";
 import getLast7DaysSentMessages from "../actions/getLast7DaysSentMessages";
 import TotalMessages from "./components/TotalMessages";
 import getTotalMessagesSent from "../actions/getTotalMessagesSent";
+import { CampaignsWrapper } from "../context/CampaignsContext";
 
 export default async function DashboardLayout({
     children
@@ -45,15 +46,17 @@ export default async function DashboardLayout({
 
     return (
         <Sidebar>
-                <CurrentCampaignWrapper 
-                    currentCampaign={currentCampaign || null}
-                    totalMessagesSent={totalMessagesSent} 
-                    instagramAccounts={instagramAccounts} 
-                    last7DaysConversations={last7DaysConversations} 
-                    last7DaysSentMessages={last7DaysSentMessages}
-                >
-                    {children}
-                </CurrentCampaignWrapper>
+            <CampaignsWrapper campaigns={campaigns || []}>
+                    <CurrentCampaignWrapper 
+                        currentCampaign={currentCampaign || null}
+                        totalMessagesSent={totalMessagesSent} 
+                        instagramAccounts={instagramAccounts} 
+                        last7DaysConversations={last7DaysConversations} 
+                        last7DaysSentMessages={last7DaysSentMessages}
+                    >
+                        {children}
+                    </CurrentCampaignWrapper>
+            </CampaignsWrapper>
         </Sidebar>
     )
 }; 

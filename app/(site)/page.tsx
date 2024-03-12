@@ -101,7 +101,7 @@ const Home2 = () => {
                     Blog
                 </button>
                 <h2 className="mb-4">Article</h2>
-                <div className="bg-customLightGray shadow-lg p-6 rounded-3xl w-5/12">
+                <div className="bg-customLightGray shadow-lg p-6 rounded-3xl w-4/12">
                     <img src="/images/article_photo.png" alt="photo" className="rounded-lg w-full mb-6"/>
                     <p>March 3, 2024</p>
                     <h3 className="mb-8">How to use instagram DMs to grow your business</h3>

@@ -11,7 +11,7 @@ interface TotalMessagesProps {
 
 const TotalMessages: React.FC<TotalMessagesProps> = ({ totalMessagesSent, currentCampaign }) => {
 
-    const nbMessagesSent = currentCampaign ? totalMessagesSent / currentCampaign.nbMessages * 100 : 0; 
+    const nbMessagesSent = currentCampaign ? (totalMessagesSent / currentCampaign.nbMessages * 100) : 0; 
     const nbMessages = currentCampaign ? currentCampaign.nbMessages : 0;
 
     return ( 
@@ -39,7 +39,7 @@ const TotalMessages: React.FC<TotalMessagesProps> = ({ totalMessagesSent, curren
                 <ProgressBar progress={nbMessagesSent}/>
                 <h3 className="ml-4">{ totalMessagesSent }</h3>
             </div>
-            <p>{nbMessagesSent}% completed</p>
+            <p>{nbMessagesSent.toFixed(2)}% completed</p>
         </div>
     );
 }

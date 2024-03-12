@@ -18,6 +18,9 @@ const getCampaigns = async () => {
         },
         include: {
           users: false,
+        },
+        orderBy: {
+          selected: 'desc' // 'desc' will ensure true values come before false
         }
       });
   

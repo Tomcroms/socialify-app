@@ -1,4 +1,4 @@
-import { FaRegUser } from "react-icons/fa"; 
+import Image from "next/image";
 
 interface Account {
     id: string;
@@ -23,10 +23,11 @@ interface Account {
 
 // Utilisez l'interface pour typer le prop `account`
 const AccountBlock: React.FC<{ account: Account }> = ({ account }) => {
+
     return (
         <div className="border rounded-lg p-4 shadow-lg h-min">
             <div className="flex items-center">
-                <FaRegUser className="w-6 h-6" />
+                <Image src={account.image || "/images/user_profile.png"} width={25} height={25} alt="profile"/>
                 <h4 className="ml-5">{account.username} {account.names}</h4>
             </div>
             <div className="flex mt-4">
