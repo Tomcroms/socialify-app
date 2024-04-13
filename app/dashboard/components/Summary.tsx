@@ -34,15 +34,17 @@ const Summary: React.FC<TotalMessagesProps> = ({ last7DaysSentMessages, last7Day
         <div 
         className="
             p-6
-            h-80
-            w-full
+            h-full
+            flex-1 
             flex 
+            flex-col
             justify-center 
             items-center 
             bg-white
-            rounded-xl
+            rounded-3xl
             relative
             shadow-md
+            w-1/2
         "
         >
             <BarChartComponent chartData={chartData}/>

@@ -6,17 +6,18 @@ import { useState } from "react";
 
 const CreateNewCampaign = () => {
 
-    const [newCampaignData, setNewCampaignData] = useState({ message: '' });
-    const handleNewCampaignDataChange = (newData: { message: string }) => {
+    const [newCampaignData, setNewCampaignData] = useState({ message: '', nbMessages: 0 });
+
+    const handleNewCampaignDataChange = (newData: { message: string; nbMessages: number }) => {
         setNewCampaignData(newData);
     }
 
     return (
-        <main className="h-full pl-40 flex flex-col items-center bg-gray-200">
+        <main className="pl-40 flex flex-col items-center bg-gray-200">
             <header className="bg-white relative w-full h-20 flex items-center justify-center p-4">
                 <h2>New Campaign</h2>
             </header>
-            <div className="w-full flex gap-6">
+            <div className="w-full h-full flex gap-6">
                 <CampaignForm onCampaignDataChange={handleNewCampaignDataChange} />
                 <CampaignPreview data={newCampaignData}  />
             </div>

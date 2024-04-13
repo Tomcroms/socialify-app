@@ -18,21 +18,19 @@ const Accounts: React.FC<TotalAnswersProps> = ( {instagramAccounts }) => {
     return ( 
         <div 
         className="
-            container
-            relative
-            w-full
+            flex
+            flex-1
+            flex-col
+            gap-2
+            w-1/2
+            p-6
             bg-white
-            rounded-xl
-            px-4
-            pt-12
-            pb-4
-            gap-4
-            grid
-            grid-cols-2
-            overflow-hidden
+            rounded-3xl
+            overflow-y-scroll
+
         "
         >
-            <h4 className="absolute top-4 left-4">My &apos;sales&apos; accounts</h4>
+            <h4 className="a">My &apos;sales&apos; accounts</h4>
             {instagramAccounts.map((account) => (
                 <AccountBlock key={account.id} account={account} />
             ))}

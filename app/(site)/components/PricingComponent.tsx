@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+
 
 const PricingComponent = () => {
 
@@ -8,6 +10,11 @@ const PricingComponent = () => {
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setNbMessages(parseInt(event.target.value));
     };
+
+    const router = useRouter();
+    const handleGetStartedClick = () => {
+        router.push("/campaignRequest")
+    }
 
     return (
         <section id="pricing" className="mt-60 flex items-center gap-12  px-[10%]">
@@ -54,7 +61,7 @@ const PricingComponent = () => {
                     <div className="mt-3">
                         <span>Support 7/7 days</span>
                     </div>
-                    <button className="bg-white rounded-2xl px-6 py-3 font-bold mt-10 shadow-md">
+                    <button className="bg-white rounded-2xl px-6 py-3 font-bold mt-10 shadow-md"  onClick={handleGetStartedClick}>
                         Get started
                     </button>
                 </div>
@@ -84,7 +91,7 @@ const PricingComponent = () => {
                     <div className="mt-3">
                         <span>Support 7/7 days</span>
                     </div>
-                    <button className="bg-black text-white rounded-2xl px-6 py-3 font-bold mt-10 shadow-md">
+                    <button className="bg-black text-white rounded-2xl px-6 py-3 font-bold mt-10 shadow-md" onClick={handleGetStartedClick}>
                         Get started
                     </button>
                 </div>

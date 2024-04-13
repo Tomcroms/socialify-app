@@ -13,15 +13,15 @@ const Home2 = () => {
                 backgroundRepeat: 'no-repeat'
             }}>
                 <div className="px-[10%] absolute top-44 flex items-center w-full gap-28">
-                    <div className="w-1/2">
+                    <div className="w-1/2 3xl:w-5/12">
                         <h1 className="mb-4 max-w-[500px]">The #1 outreach tool on Instagram</h1>
                         <p className="mb-10 max-w-[480px] text-[18px]">Build your contact list, personalize on alarge scale and send messages that capture new customers.</p>
                         <button className="rounded-3xl py-4 px-8 bg-customBlue"><p className="text-white">Get started</p></button>
                     </div>
-                    <div className="w-1/2 flex flex-col items-center">
-                        <img src="/images/dashboard.png" alt="dashboard" className="w-12/12 rounded-2xl"/>
-                        <p className="mt-4">Over 20K+ leads generated from our clients</p>
-                        <img src="/images/landing_logos.png" alt="logos" className="mt-2 scale-125"/>
+                    <div className="w-1/2 flex flex-col items-center 3xl:w-7/12 5xl:mt-20">
+                        <img src="/images/dashboard.png" alt="dashboard" className="w-12/12 rounded-2xl 4xl:scale-110 5xl:scale-[120%]"/>
+                        <p className="mt-4 4xl:mt-8 5xl:mt-16">Over 20K+ leads generated from our clients</p>
+                        <img src="/images/landing_logos.png" alt="logos" className="mt-2 scale-125 max-w-[700px]"/>
                     </div>
                     
                 </div>
@@ -59,7 +59,7 @@ const Home2 = () => {
             </section>
 
             <section id="leads" className="py-10 px-[10%] mt-60 flex items-center relative">
-                <div className="w-8/12 px-8 py-12 2xl:py-16 pr-32 bg-customLightGray rounded-3xl shadow-lg">
+                <div className="w-8/12 px-8 py-12 pr-32 bg-customLightGray rounded-3xl shadow-lg 2xl:px-16 2xl:py-24 3xl:py-32 4xl:py-40">
                     <h2 className="mb-8 w-7/12">Manage all your leads in one place</h2>
                     <p className="mb-8 w-2/3">No more switching between different accounts to track your leads and follow up with them.</p>
                     <div className="flex">

@@ -5,36 +5,44 @@ import prisma from '@/app/libs/prismadb'; // Assurez-vous que le chemin d'import
 
 interface CampaignCreateData {
   campaignName: string;
-  status: string;
-  message: string;
-  bio: string;
-  nbMessages: number;
-  nbMessagesSent: number;
-  link?: string;
+  campaignMessage: string;
+  campaignDescription: string;
+  campaignKeyWords: string[];
+  followersMin?: number;
+  followersMax?: number;
+  campaignDuration: string;
+  campaignPrice: number;
+  contact: string;
+  company?: string;
 }
 
-export async function POST(
-  request: Request,
-){
+export async function POST(request: Request){
     const currentUser = await getCurrentUser();
     if (!currentUser?.id || !currentUser?.email) {
       return new NextResponse('Unauthorized', { status: 401 });
     }
 
-    const userId: string = currentUser.id; // Adaptez selon la structure de votre objet session
-    const body:CampaignCreateData = await request.json();
+    const body: CampaignCreateData = await request.json();
+
+    //validation logic here to do
 
     try {
-      const newCampaign = await prisma.campaign.create({
+      const newCampaign = await prisma.campaignRequest.create({
         data: {
-          ...body,
-          users: {
-            connect: [{ id: userId }],
-          },
+          campaignName: body.campaignName,
+          campaignMessage: body.campaignMessage,
+          campaignDescription: body.campaignDescription,
+          campaignKeyWords: body.campaignKeyWords,
+          followersMin: body.followersMin,
+          followersMax: body.followersMax,
+          campaignDuration: body.campaignDuration,
+          campaignPrice: body.campaignPrice,
+          contact: body.contact,
+          company: body.company,
         },
       });
 
-      return NextResponse.json(newCampaign)
+      return NextResponse.json(newCampaign);
     } catch (error) {
       console.error('Error creating campaign', error);
       return new NextResponse('Error', { status: 500 });

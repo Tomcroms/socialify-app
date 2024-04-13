@@ -159,3 +159,18 @@ model InstagramAccount {
     conversations Conversation[]
     sentMessages SentMessage[]
 }
+
+model campaignRequest{
+    id                  String   @id @default(auto()) @map("_id") @db.ObjectId
+    createdAt           DateTime @default(now())
+    campaignName        String
+    campaignMessage     String
+    campaignDescription String
+    campaignKeyWords    String[]
+    followersMin        Int?
+    followersMax        Int?
+    campaignDuration    String
+    campaignPrice       Int
+    contact             String
+    company             String?
+}

@@ -29,6 +29,11 @@ const config: Config = {
         serif: ['Nunito', 'serif'],
         mono: ['Nunito', 'monospace'],
       },
+      screens: {
+        '3xl': '1800px',
+        '4xl': '1900px',
+        '5xl': '2000px'
+      },
     },
   },
   plugins: [],
