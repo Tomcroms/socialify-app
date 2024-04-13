@@ -11,13 +11,14 @@ interface FormState {
   campaignName: string;
   message: string;
   keywords: string;
+  description: string;
   followersMin: number | string;
   followersMax: number | string;
   nbMessages: number;
-  subscriptionDuration: string,
+  subscriptionDuration: string;
   price: number | string;
-  contact: string,
-  companyName: string
+  contact: string;
+  companyName: string;
 }
 
 const CampaignForm: React.FC<CampaignFormProps> = ({ onCampaignDataChange }) => {
