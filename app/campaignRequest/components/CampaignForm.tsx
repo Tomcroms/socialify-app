@@ -16,7 +16,7 @@ interface FormState {
   followersMax: number | null;
   nbMessages: number;
   subscriptionDuration: string;
-  price: number;
+  price: number | null;
   contact: string;
   companyName: string;
 }
@@ -35,7 +35,7 @@ const CampaignForm: React.FC<CampaignFormProps> = ({ onCampaignDataChange }) => 
         followersMax: null,
         nbMessages: 1000,
         subscriptionDuration: '3months',
-        price: '',
+        price: null,
         contact: '',
         companyName: ''
     });
