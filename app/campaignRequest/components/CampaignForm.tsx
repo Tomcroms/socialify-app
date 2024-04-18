@@ -12,11 +12,11 @@ interface FormState {
   message: string;
   keywords: string;
   description: string;
-  followersMin: number | string;
-  followersMax: number | string;
+  followersMin: number;
+  followersMax: number;
   nbMessages: number;
   subscriptionDuration: string;
-  price: number | string;
+  price: number;
   contact: string;
   companyName: string;
 }
@@ -68,8 +68,8 @@ const CampaignForm: React.FC<CampaignFormProps> = ({ onCampaignDataChange }) => 
             campaignMessage: formState.message,
             campaignDescription: formState.description, 
             campaignKeyWords: formState.keywords.split(',').map(kw => kw.trim()),
-            followersMin: parseInt(formState.followersMin, 10),
-            followersMax: parseInt(formState.followersMax, 10),
+            followersMin: formState.followersMin,
+            followersMax: formState.followersMax,
             campaignDuration: formState.subscriptionDuration,
             campaignPrice: calculatePrice(),
             contact: formState.contact,
