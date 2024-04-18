@@ -5,7 +5,7 @@ import { useState } from 'react';
 const PricingComponent = () => {
     const [formState, setFormState] = useState({ pricing: 0 });
 
-    const handleChange = (event) => {
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
         setFormState(prevState => ({
             ...prevState,
