@@ -44,8 +44,8 @@ const useRoutes = () => {
         },
         {
             label: "Logout",
-            href: "/",
             onClick: () => signOut(),
+            href: "/",
             icon: HiArrowLeftOnRectangle,
         },
     ], [pathname]);
