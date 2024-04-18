@@ -8,8 +8,8 @@ const CampaignSelection = () => {
     const [isOverflowHidden, setIsOverflowHidden] = useState(true);
 
     return (
-        <div className="flex ml-10">
-            <section className={`h-14 ${isOverflowHidden ? 'overflow-hidden' : ''} w-32 flex flex-col items-center z-10 rounded-xl border shadow-md`}>
+        <div className="flex ml-10 bg-white">
+            <section className={`${isOverflowHidden ? 'h-14 overflow-hidden' : 'h-max'} w-32 flex flex-col gap-2 z-10 rounded-xl border shadow-md`}>
                 {campaigns?.map((item) => (
                     <CampaignBlock
                         key={item.id}
@@ -18,7 +18,7 @@ const CampaignSelection = () => {
                 ))}
             </section>
             <button
-                className="px-4 bg-blue-500 text-white rounded-xl ml-10 text-[14px] h-full py-2 my-auto w-36"
+                className="px-4 bg-blue-500 text-white rounded-xl ml-10 text-[14px] h-14 py-2 w-36"
                 onClick={() => setIsOverflowHidden(!isOverflowHidden)}
             >
                 {isOverflowHidden ? 'Show Campaigns' : 'Hide'}

@@ -6,7 +6,8 @@ const nextConfig = {
         'avatars.githubusercontent.com',
         'lh3.googleusercontent.com',
         'instagram.fcdg3-1.fna.fbcdn.net',
-        'scontent.cdninstagram.com'
+        'scontent.cdninstagram.com',
+        'scontent.xx.fbcdn.net'
         ]
     },
 };

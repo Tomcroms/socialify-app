@@ -16,12 +16,9 @@ const Dashboard = () => {
     return (
         <div className="w-full pl-40 h-screen flex flex-col overflow-hidden bg-customLightGray">
             <header className="flex items-center px-6 h-20 bg-white w-full z-10">
-                <div>
+                <div className="h-14">
                     {currentCampaign ? (
-                        <div className="flex items-center">
-                            <h3>Dashboard: </h3>
-                            <CampaignSelection />
-                        </div>
+                        <CampaignSelection />
 
                     ) : (
                         <CampaignSelection />

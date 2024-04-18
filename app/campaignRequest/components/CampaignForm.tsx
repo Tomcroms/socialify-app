@@ -48,7 +48,7 @@ const CampaignForm: React.FC<CampaignFormProps> = ({ onCampaignDataChange }) => 
             if (name === 'message' || name === 'nbMessages') {
                 onCampaignDataChange({
                     message: newState.message,
-                    nbMessages: parseInt(newState.nbMessages, 10)
+                    nbMessages: newState.nbMessages
                 });
             }
             return newState;

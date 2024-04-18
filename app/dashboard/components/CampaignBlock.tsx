@@ -20,7 +20,7 @@ const CampaignBlock: React.FC<CampaignBlockProps> = ({ campaign }) => {
     };
     
     return (
-        <div onClick={selectCampaign} className={`bg-gray-100 border-gray-100 rounded-xl w-full text-center cursor-pointer p-2 ${campaign.selected === true ? 'font-black bg-white' : ''} py-5 border-b border-black`}>
+        <div onClick={selectCampaign} className={`bg-gray-100 h-16 border-gray-100 rounded-xl w-full text-center cursor-pointer p-2 ${campaign.selected === true ? 'font-black bg-white' : ''} py-5 border-b border-black`}>
             <p className="text-black">{campaign.campaignName}</p>
         </div>
     );
