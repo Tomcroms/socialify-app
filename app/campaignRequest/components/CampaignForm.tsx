@@ -161,7 +161,7 @@ const CampaignForm: React.FC<CampaignFormProps> = ({ onCampaignDataChange }) => 
                             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                             id="followersMax"
                             type="number"
-                            min={formState.followersMin}
+                            min={formState.followersMin === null ? '' : formState.followersMin}
                             name="followersMax"
                             value={formState.followersMax === null ? '' : formState.followersMax}
                             onChange={handleChange}
