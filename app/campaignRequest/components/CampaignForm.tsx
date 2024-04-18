@@ -153,7 +153,7 @@ const CampaignForm: React.FC<CampaignFormProps> = ({ onCampaignDataChange }) => 
                             type="number"
                             min="0"
                             name="followersMin"
-                            value={formState.followersMin}
+                            value={formState.followersMin === null ? '' : formState.followersMin}
                             onChange={handleChange}
                             placeholder="Followers min"
                         />
@@ -163,7 +163,7 @@ const CampaignForm: React.FC<CampaignFormProps> = ({ onCampaignDataChange }) => 
                             type="number"
                             min={formState.followersMin}
                             name="followersMax"
-                            value={formState.followersMax}
+                            value={formState.followersMax === null ? '' : formState.followersMax}
                             onChange={handleChange}
                             placeholder="Followers max"
                         />
