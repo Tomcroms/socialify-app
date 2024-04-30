@@ -26,14 +26,15 @@ const Accounts: React.FC<TotalAnswersProps> = ( {instagramAccounts }) => {
             p-6
             bg-white
             rounded-3xl
-            overflow-y-scroll
-
+            shadow-md
         "
         >
             <h4 className="a">My &apos;sales&apos; accounts</h4>
-            {instagramAccounts.map((account) => (
-                <AccountBlock key={account.id} account={account} />
-            ))}
+            <div className="p-4 overflow-y-scroll flex flex-col gap-4">
+                {instagramAccounts.map((account) => (
+                    <AccountBlock key={account.id} account={account} />
+                ))}
+            </div>
         </div>
     );
 }

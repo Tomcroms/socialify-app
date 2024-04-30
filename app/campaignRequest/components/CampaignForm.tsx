@@ -12,11 +12,11 @@ interface FormState {
   message: string;
   keywords: string;
   description: string;
-  followersMin: number | string;
-  followersMax: number | string;
+  followersMin: number | null;
+  followersMax: number | null;
   nbMessages: number;
   subscriptionDuration: string;
-  price: number | string;
+  price: number | null;
   contact: string;
   companyName: string;
 }
@@ -31,11 +31,11 @@ const CampaignForm: React.FC<CampaignFormProps> = ({ onCampaignDataChange }) => 
         message: '',
         description: '',
         keywords: '',
-        followersMin: '',
-        followersMax: '',
+        followersMin: null,
+        followersMax: null,
         nbMessages: 1000,
         subscriptionDuration: '3months',
-        price: '',
+        price: null,
         contact: '',
         companyName: ''
     });
@@ -48,7 +48,7 @@ const CampaignForm: React.FC<CampaignFormProps> = ({ onCampaignDataChange }) => 
             if (name === 'message' || name === 'nbMessages') {
                 onCampaignDataChange({
                     message: newState.message,
-                    nbMessages: parseInt(newState.nbMessages, 10)
+                    nbMessages: newState.nbMessages
                 });
             }
             return newState;
@@ -68,8 +68,8 @@ const CampaignForm: React.FC<CampaignFormProps> = ({ onCampaignDataChange }) => 
             campaignMessage: formState.message,
             campaignDescription: formState.description, 
             campaignKeyWords: formState.keywords.split(',').map(kw => kw.trim()),
-            followersMin: parseInt(formState.followersMin, 10),
-            followersMax: parseInt(formState.followersMax, 10),
+            followersMin: formState.followersMin,
+            followersMax: formState.followersMax,
             campaignDuration: formState.subscriptionDuration,
             campaignPrice: calculatePrice(),
             contact: formState.contact,
@@ -153,7 +153,7 @@ const CampaignForm: React.FC<CampaignFormProps> = ({ onCampaignDataChange }) => 
                             type="number"
                             min="0"
                             name="followersMin"
-                            value={formState.followersMin}
+                            value={formState.followersMin === null ? '' : formState.followersMin}
                             onChange={handleChange}
                             placeholder="Followers min"
                         />
@@ -161,9 +161,9 @@ const CampaignForm: React.FC<CampaignFormProps> = ({ onCampaignDataChange }) => 
                             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                             id="followersMax"
                             type="number"
-                            min={formState.followersMin}
+                            min={formState.followersMin === null ? '' : formState.followersMin}
                             name="followersMax"
-                            value={formState.followersMax}
+                            value={formState.followersMax === null ? '' : formState.followersMax}
                             onChange={handleChange}
                             placeholder="Followers max"
                         />
