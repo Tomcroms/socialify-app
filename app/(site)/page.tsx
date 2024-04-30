@@ -21,7 +21,7 @@ const Home2 = () => {
                     <div className="w-1/2 flex flex-col items-center 3xl:w-7/12 5xl:mt-20">
                         <img src="/images/dashboard.png" alt="dashboard" className="w-12/12 rounded-2xl 4xl:scale-110 5xl:scale-[120%]"/>
                         <p className="mt-4 4xl:mt-8 5xl:mt-16">Over 20K+ leads generated from our clients</p>
-                        <img src="/images/landing_logos.png" alt="logos" className="mt-2 scale-125 max-w-[700px]"/>
+                        <img src="/images/landing_logos.png" alt="logos" className="mt-2 scale-110 3xl:scale-125 max-w-[700px]"/>
                     </div>
                     
                 </div>
