@@ -27,7 +27,7 @@ const AccountBlock: React.FC<{ account: Account }> = ({ account }) => {
     return (
         <div className="border rounded-lg p-4 shadow-lg h-min">
             <div className="flex items-center">
-                <Image src={account.image || "/images/user_profile.png"} width={25} height={25} alt="profile"/>
+                <Image src={"/images/user_profile.png"} width={25} height={25} alt="profile"/>
                 <h4 className="ml-5">{account.username} {account.names}</h4>
             </div>
             <div className="flex mt-4">
