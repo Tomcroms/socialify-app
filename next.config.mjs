@@ -1,14 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: [
-        'res.cloudinary.com', 
-        'avatars.githubusercontent.com',
-        'lh3.googleusercontent.com',
-        'instagram.fcdg3-1.fna.fbcdn.net',
-        'scontent.cdninstagram.com',
-        'scontent.xx.fbcdn.net',
-        'scontent-den2-1.cdninstagram.com'
+        remotePatterns: [
+            { hostname: 'res.cloudinary.com' },
+            { hostname: 'avatars.githubusercontent.com' },
+            { hostname: 'lh3.googleusercontent.com' },
+            { hostname: 'instagram.fcdg3-1.fna.fbcdn.net' },
+            { hostname: 'scontent.cdninstagram.com' },
+            { hostname: 'scontent.xx.fbcdn.net' },
+            { hostname: 'scontent-den2-1.cdninstagram.com' }
         ]
     },
 };
