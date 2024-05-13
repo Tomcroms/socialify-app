@@ -30,7 +30,7 @@ const TotalAnswers: React.FC<TotalAnswersProps> = ({ totalMessagesSent, currentC
                     <AiOutlineMessage  className="h-6 w-6 text-black"/>
                 </div>
                 <div className="ml-2">
-                    <h4>Total messages sent</h4>
+                    <h4>Total replies received</h4>
                     <h5>This month</h5>
                 </div>
             </div>

@@ -22,7 +22,7 @@ const Audience = () => {
                     <SlPeople  className="h-6 w-6 text-black"/>
                 </div>
                 <div className="ml-2">
-                    <h4>My Audience</h4>
+                    <h4>My audience</h4>
                     <h5>This month</h5>
                 </div>
             </div>

@@ -1,47 +1,47 @@
-import getCurrentUser from "@/app/actions/getCurrentUser";
 import { NextResponse } from "next/server";
-import { getSession } from 'next-auth/react';
-import prisma from '@/app/libs/prismadb'; // Assurez-vous que le chemin d'importation est correct
+import prisma from '@/app/libs/prismadb'; 
 
 interface CampaignCreateData {
+  userEmail: string;
+
   campaignName: string;
   campaignMessage: string;
-  campaignDescription: string;
+  biography: string;
   campaignKeyWords: string[];
   followersMin?: number;
   followersMax?: number;
   campaignDuration: string;
   campaignPrice: number;
-  contact: string;
-  company?: string;
+  nbMessages: number;
 }
 
 export async function POST(request: Request){
-    const currentUser = await getCurrentUser();
-    if (!currentUser?.id || !currentUser?.email) {
-      return new NextResponse('Unauthorized', { status: 401 });
-    }
 
     const body: CampaignCreateData = await request.json();
 
-    //validation logic here to do
-
     try {
-      const newCampaign = await prisma.campaignRequest.create({
+      // Tentative de recherche de l'utilisateur par email
+      const user = await prisma.user.findUnique({
+        where: { email: body.userEmail },
+        select: { id: true }, // Seulement récupérer l'ID de l'utilisateur
+      });
+  
+      // Créer la campagne, associée à l'utilisateur si trouvé, sinon sans utilisateur
+      const newCampaign = await prisma.campaign.create({
         data: {
           campaignName: body.campaignName,
-          campaignMessage: body.campaignMessage,
-          campaignDescription: body.campaignDescription,
-          campaignKeyWords: body.campaignKeyWords,
+          bio: body.biography,
+          message: body.campaignMessage,
+          keyWords: body.campaignKeyWords,
           followersMin: body.followersMin,
           followersMax: body.followersMax,
-          campaignDuration: body.campaignDuration,
-          campaignPrice: body.campaignPrice,
-          contact: body.contact,
-          company: body.company,
+          duration: body.campaignDuration,
+          price: body.campaignPrice,
+          nbMessages: body.nbMessages,
+          userIds: user ? [user.id] : [], // Ajoute l'ID de l'utilisateur s'il est trouvé
         },
       });
-
+  
       return NextResponse.json(newCampaign);
     } catch (error) {
       console.error('Error creating campaign', error);

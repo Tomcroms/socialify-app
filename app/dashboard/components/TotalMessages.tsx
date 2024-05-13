@@ -31,7 +31,7 @@ const TotalMessages: React.FC<TotalMessagesProps> = ({ totalMessagesSent, curren
                     <AiOutlinePieChart className="h-6 w-6 text-customBlue"/>
                 </div>
                 <div className="ml-2">
-                    <h4>Total Messages Sent</h4>
+                    <h4>Total messages sent</h4>
                     <h5>This month</h5>
                 </div>
             </div>
