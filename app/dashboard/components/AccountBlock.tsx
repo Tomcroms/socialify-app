@@ -1,5 +1,5 @@
 import Image from "next/image";
-
+import { useRouter } from "next/navigation";
 interface Account {
     id: string;
     campaignId?: string | null; // Autorisez `campaignId` à être `string` ou `null`
@@ -23,11 +23,15 @@ interface Account {
 
 // Utilisez l'interface pour typer le prop `account`
 const AccountBlock: React.FC<{ account: Account }> = ({ account }) => {
+    const router = useRouter();
+    const handleAccountClick = () => {
+        router.push(`https://instagram.com/${account.username}`);
+    }
 
     return (
         <div className="border rounded-lg p-4 shadow-lg h-min">
-            <div className="flex items-center">
-                <Image src={"/images/user_profile.png"} width={25} height={25} alt="profile"/>
+            <div className="flex items-center cursor-pointer" onClick={() => handleAccountClick()}>
+                <Image className="rounded-full" src={account.image? account.image : "/images/user_profile.png"} width={25} height={25} alt="profile"/>
                 <h4 className="ml-5">{account.username} {account.names}</h4>
             </div>
             <div className="flex mt-4">

@@ -27,8 +27,6 @@ export default async function DashboardLayout({
     if (currentCampaign) {
         const result = await getInstagramAccounts(currentCampaign.id);
         instagramAccounts = result || [];
-        console.log("Instagram accounts")
-        console.log(instagramAccounts)
     }
 
     let last7DaysConversations = [0,0,0,0,0,0,0];

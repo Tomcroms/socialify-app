@@ -22,9 +22,9 @@ const ConversationId = async ({ params }: { params: Iparams }) => {
                 </div>
             </div>
         )
-      }
-
-
+    }
+    console.log("messages :\n")
+    console.log(messages)
     return (
         <div className="lg:pl-[544px] h-full">
             <div className="h-full flex flex-col">

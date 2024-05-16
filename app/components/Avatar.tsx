@@ -16,12 +16,13 @@ const Avatar: React.FC<AvatarProps> = ({ user }) => {
         }
     }
 
+
     return (
         <div className="relative">
             <div className="inline-block relative rounded-full overflow-hidden h-9 w-9 md:h-11 md:w-11">
             {user?.image ? (
-                    // <Image alt="Avatar" src={ user?.image } fill onClick={handleInstagramRedirection} className="cursor-pointer"/>
-                    <Image src="/images/user_profile.png" alt="Instagram Logo" fill />
+                    <Image alt="Avatar" src={ user.image } fill onClick={handleInstagramRedirection} className="cursor-pointer"/>
+                    // <Image src="/images/user_profile.png" alt="Instagram Logo" fill />
                 ) : (
                     //<FaInstagram className="w-full h-full" onClick={ handleInstagramRedirection } />
                     <Image src="/images/user_profile.png" alt="Instagram Logo" fill />

@@ -121,6 +121,9 @@ const CampaignActions = () => {
                     <div className="bg-red-400 text-white rounded-xl py-4 mb-4 cursor-pointer text-center w-72" onClick={() => handleClickRedirection("startAndStopMessages")}>
                         <h4>Lancer / Arrêter campagne</h4>
                     </div>
+                    <div className="bg-red-400 text-white rounded-xl py-4 mb-4 cursor-pointer text-center w-72" onClick={() => handleClickRedirection("modifyMessage")}>
+                        <h4>Modifier le message</h4>
+                    </div>
                     <div className="bg-red-400 text-white rounded-xl py-4 mb-4 cursor-pointer text-center w-72" onClick={() => handleClickRedirection("deletePreviousMessages")}>
                         <h4>Supprimer les messages envoyés</h4>
                     </div>

@@ -8,10 +8,28 @@ import { useCurrentCampaignContext } from "../context/CurrentCampaignWrapper";
 import { CiLock } from "react-icons/ci";
 import CampaignSelection from "./components/CampaignSelection";
 import Link from "next/link";
+import EmptyState from "../components/EmptyState";
+import { useState, useEffect } from "react";
 
 const Dashboard = () => {
 
+    const [loading, setLoading] = useState(true);
     const { currentCampaign, totalMessagesSent, instagramAccounts, last7DaysConversations, last7DaysSentMessages } = useCurrentCampaignContext();
+
+    useEffect(() => {
+        if (currentCampaign && totalMessagesSent && instagramAccounts && last7DaysConversations && last7DaysSentMessages) {
+            setLoading(false);
+        }
+    }, [currentCampaign, totalMessagesSent, instagramAccounts, last7DaysConversations, last7DaysSentMessages]);
+    if(loading) {
+        return (
+            <div className="lg:pl-80 h-full">
+                <div className="h-full flex flex-col">
+                    <EmptyState />
+                </div>
+            </div>
+        )
+    }
 
     return (
         <div className="w-full pl-40 h-screen flex flex-col overflow-hidden bg-customLightGray">
@@ -34,7 +52,7 @@ const Dashboard = () => {
             <section className="w-full flex gap-3 h-min p-6">
                 <TotalMessages totalMessagesSent={ totalMessagesSent } currentCampaign={currentCampaign}/>
                 <TotalAnswers totalMessagesSent={ totalMessagesSent } currentCampaign={ currentCampaign } />
-                <Audience />
+                <Audience currentCampaign={ currentCampaign }/>
             </section>
             <main className="flex-1 w-full flex overflow-hidden gap-4 px-6 pb-4">
                 <Summary last7DaysSentMessages={last7DaysSentMessages} last7DaysConversations={last7DaysConversations} />

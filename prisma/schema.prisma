@@ -82,6 +82,7 @@ model Message{
     image String?
     createdAt DateTime @default(now())
     onInstagram Boolean?
+    firstMessage Boolean?
 
     campaignId String? @db.ObjectId
     seenIds String[] @db.ObjectId
@@ -122,7 +123,6 @@ model Campaign{
     conversationIds String[] @db.ObjectId
     conversations  Conversation[]
     sentMessages  SentMessage[]
-
 }
 
 model SentMessage {

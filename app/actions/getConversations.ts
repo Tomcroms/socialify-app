@@ -3,7 +3,6 @@ import getCurrentUser from '@/app/actions/getCurrentUser';
 
 const getConversations = async () => {
     const currentUser = await getCurrentUser();
-    console.log(currentUser)
     if(!currentUser?.id) {
         return [];
     }

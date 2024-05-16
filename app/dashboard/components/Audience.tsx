@@ -1,9 +1,24 @@
 import { SlPeople } from "react-icons/sl";
 import { HiOutlineDownload } from "react-icons/hi";
+import { Campaign } from "@prisma/client";
+import { useRouter } from "next/navigation";
+
+interface AudienceProps {
+    currentCampaign: Campaign | null;
+}
+
+const Audience: React.FC<AudienceProps> = ({ currentCampaign }) => {
+    
+    const router = useRouter();
+    const totalTargets = currentCampaign?.nbMessages;
 
 
-const Audience = () => {
-    const totalTargets = 1250;
+
+    const handleClickToSpreadsheet = () => {
+        if(currentCampaign){
+            router.push(currentCampaign.link)
+        }
+    }
 
     return ( 
         <div 
@@ -44,9 +59,8 @@ const Audience = () => {
                         @emmagypson
                     </p>
                 </div>
-                <div className="flex items-center w-auto">
-                    <p>Download</p>
-                    <HiOutlineDownload className="ml-2 h-4 w-4 text-gray-400"/>
+                <div className="flex items-center w-auto" onClick={handleClickToSpreadsheet}>
+                    <p className="underline cursor-pointer">Link to spreadsheet</p>
                 </div>
             </div>
         </div>
