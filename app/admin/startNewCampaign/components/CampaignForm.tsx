@@ -38,7 +38,7 @@ const CampaignForm = () => {
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
-        let newValue;
+        let newValue=null;
     
         // Gérer la conversion pour les champs numériques
         if (name === "followersMin" || name === "followersMax" || name === "nbMessages" || name === "price") {
