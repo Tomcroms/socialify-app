@@ -1,4 +1,4 @@
-const accountManagement = () => {
+const AccountManagement = () => {
     return (
         <div>
             <p>Salut</p>
@@ -6,4 +6,4 @@ const accountManagement = () => {
     )
 }
 
-export default accountManagement;
+export default AccountManagement;

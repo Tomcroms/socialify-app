@@ -13,7 +13,7 @@ interface Campaign {
     }[];
 }
 
-const admin = () => {
+const Admin = () => {
     const router = useRouter();
 
     const handleStartNewCampaignClick = () => {
@@ -119,4 +119,4 @@ const admin = () => {
     )
 }
 
-export default admin;
+export default Admin;

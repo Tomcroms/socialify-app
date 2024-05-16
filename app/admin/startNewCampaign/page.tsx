@@ -1,6 +1,6 @@
 import CampaignForm from "./components/CampaignForm";
 
-const startNewCampaign = () => {
+const StartNewCampaign = () => {
     return (
         <>
             <section className="bg-white ">
@@ -10,4 +10,4 @@ const startNewCampaign = () => {
     )
 }
 
-export default startNewCampaign;
+export default StartNewCampaign;

@@ -6,7 +6,7 @@ import { Campaign } from '@prisma/client';
 import axios from 'axios';
 
 
-const modifyMessage = () => {
+const ModifyMessage = () => {
 
     const pathname = usePathname();
     const [id, setId] = useState<string | null>(null);
@@ -99,4 +99,4 @@ const modifyMessage = () => {
     );
 }
 
-export default modifyMessage;
+export default ModifyMessage;
