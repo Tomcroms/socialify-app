@@ -8,7 +8,7 @@ import ConversationList from "./components/ConversationList";
 export default async function ConversationsLayout({ children }: { children: React.ReactNode }) {
 
     const selectedCampaignId = await getSelectedCampaignId();
-    const conversations = await getConversations();
+    const conversations = await getConversations(selectedCampaignId);
     const users = await getUsers();
 
     const filteredConversations = conversations.filter(item => 

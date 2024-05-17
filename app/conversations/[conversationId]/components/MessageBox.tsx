@@ -6,27 +6,26 @@ import { useState } from "react";
 import { format } from "date-fns";
 import { useSession } from "next-auth/react";
 import { FullMessageType } from "@/app/types";
-
 import Avatar from "@/app/components/Avatar";
-// import ImageModal from "./ImageModal";
+import { User } from "@prisma/client";
 
 interface MessageBoxProps {
   data: FullMessageType;
   isLast?: boolean;
   isFirst?: boolean;
+  currentUser: User | null;
 }
 
 const MessageBox: React.FC<MessageBoxProps> = ({ 
   data, 
   isLast,
-  isFirst
+  isFirst,
+  currentUser
 }) => {
-  const session = useSession();
   const [imageModalOpen, setImageModalOpen] = useState(false);
 
 
-  const isOwn = session.data?.user?.email === data?.sender?.email || isFirst;
-  const seenList = (data.seen || [])
+  const isOwn = currentUser ? (currentUser.id === data?.sender?.id || isFirst) : false;  const seenList = (data.seen || [])
     .filter((user) => user.email !== data?.sender?.email)
     .map((user) => user.name)
     .join(', ');
@@ -43,13 +42,24 @@ const MessageBox: React.FC<MessageBoxProps> = ({
   return ( 
     <div className={container}>
         <div className={avatar}>
-            <Avatar user={data.sender} />
+            {isFirst ? (
+                <Avatar user={null} />
+            ) : 
+            (
+                <Avatar user={data.sender} />
+            )}
         </div>
+
         <div className={body}>
             <div className="flex items-center gap-1">
-                <div className="text-sm text-gray-500">
-                    {data.sender?.name}
-                </div>
+                {isFirst? (
+                    <div></div>
+                ):(
+                    <div className="text-sm text-gray-500">
+                        {data.sender?.name}
+                    </div>
+                )}
+
                 <div className="text-xs text-gray-400">
                     {format(new Date(data.createdAt), 'p')}
                 </div>

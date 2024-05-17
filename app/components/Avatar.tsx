@@ -5,7 +5,7 @@ import Image from "next/image";
 import InstagramLogo from "../../public/images/instagram_logo.svg";
 
 interface AvatarProps {
-    user?: User;
+    user?: User | null;
 }
                                     //envoyer User à ce component
 const Avatar: React.FC<AvatarProps> = ({ user }) => {

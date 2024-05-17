@@ -4,13 +4,15 @@ import EmptyState from "@/app/components/EmptyState";
 import Header from './components/Header';
 import Body from "./components/Body";
 import Form from "./components/Form";
-
+import getCurrentUser from "@/app/actions/getCurrentUser";
 
 interface Iparams{ 
     conversationId: string;
 };
 
 const ConversationId = async ({ params }: { params: Iparams }) => {
+
+    const currentUser = await getCurrentUser();
     const conversation = await getConversationById(params.conversationId);
     const messages = await getMessages(params.conversationId);
 
@@ -23,13 +25,12 @@ const ConversationId = async ({ params }: { params: Iparams }) => {
             </div>
         )
     }
-    console.log("messages :\n")
-    console.log(messages)
+
     return (
         <div className="lg:pl-[544px] h-full">
             <div className="h-full flex flex-col">
                 <Header conversation={conversation} />
-                <Body initialMessages={messages} />
+                <Body initialMessages={messages} currentUser={currentUser} />
                 <Form />
             </div>
       </div>

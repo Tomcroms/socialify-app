@@ -9,7 +9,8 @@ const nextConfig = {
         'scontent.cdninstagram.com',
         'scontent.xx.fbcdn.net',
         'scontent-den2-1.cdninstagram.com',
-        'scontent-ams2-1.cdninstagram.com'
+        'scontent-ams2-1.cdninstagram.com',
+        'scontent.fcdg3-1.fna.fbcdn.net'
         ]
     },
 };
