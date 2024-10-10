@@ -12,7 +12,7 @@ export async function POST(request: Request) {
     const body = await request.json();
     const { message, image, conversationId } = body;
 
-    if (!currentUser?.id || !currentUser?.email) {
+    if (!currentUser || !currentUser.id || !currentUser.email)      {
       return new NextResponse('Unauthorized', { status: 401 });
     }
 
@@ -93,7 +93,6 @@ export async function POST(request: Request) {
 
     return NextResponse.json(newMessage);
   } catch (error) {
-    console.log(error, 'ERROR_MESSAGES');
     console.error('Error creating new message:', error);
     return new NextResponse('Database error', { status: 500 });
   }
