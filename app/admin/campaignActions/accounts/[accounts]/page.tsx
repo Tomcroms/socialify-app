@@ -1,7 +1,7 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { Campaign, InstagramAccount } from '@prisma/client';
 import MessageGraph from './MessageGraph';
@@ -16,21 +16,13 @@ const Accounts = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [instagramAccounts, setInstagramAccounts] = useState<InstagramAccount[]>([]);
 
-
     useEffect(() => {
         const pathParts = pathname.split('/');
         const pathId = pathParts[pathParts.length - 1];
         setId(pathId);
     }, [pathname]);
 
-
-    useEffect(() => {
-        if(id){
-            fetchInstagramAccounts();
-        }
-    }, [id]);
-
-    const fetchInstagramAccounts = async () => {
+    const fetchInstagramAccounts = useCallback(async () => {
         if (id) {
             try {
                 const response = await axios.post('/api/getInstagramAccountsByCampaignId', {
@@ -44,8 +36,13 @@ const Accounts = () => {
                 console.error('Error fetching Instagram accounts', error);
             }
         }
-    };
+    }, [id]);
 
+    useEffect(() => {
+        if(id){
+            fetchInstagramAccounts();
+        }
+    }, [id, fetchInstagramAccounts]);
 
     const getStatusClass = (status: string | null) => {
         switch(status?.toLowerCase()) {
@@ -86,7 +83,7 @@ const Accounts = () => {
                         <div><p>No account found for this campaign</p></div>
                     ) : (
                         instagramAccounts.map((instagramAccount) => (
-                            <div className={`bg-gray-200 p-2 rounded-sm w-[calc(50%-8px)] flex items-center`}>
+                            <div key={instagramAccount.id} className={`bg-gray-200 p-2 rounded-sm w-[calc(50%-8px)] flex items-center`}>
                                 <div>
                                     <div className="flex items-center">
                                         <p>Username: </p>
