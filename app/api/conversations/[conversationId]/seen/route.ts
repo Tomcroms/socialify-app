@@ -10,15 +10,19 @@ interface IParams {
 
 export async function POST(
     request: Request,
-    { params } : { params: IParams }
+    { params }: { params: IParams }
 ) {
     try {
-        
-        const currentUser = await getCurrentUser();
+        // Log params for debugging
+        console.log("Params received:", params);
+
         const { conversationId } = params;
+
         if (!conversationId) {
             return new NextResponse("Conversation ID is missing", { status: 400 });
-        }        
+        }
+        
+        const currentUser = await getCurrentUser();
         if (!currentUser?.id || !currentUser?.email) {
             return new NextResponse("Unauthorized", { status: 401 });
         }
