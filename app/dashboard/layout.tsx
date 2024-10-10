@@ -14,6 +14,7 @@ export default async function DashboardLayout({
 }: {
     children: React.ReactNode;
 })  { 
+    
     const campaigns = await getCampaigns();
     const currentCampaign = campaigns?.find(campaign => campaign.selected === true);
 

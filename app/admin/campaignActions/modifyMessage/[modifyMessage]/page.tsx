@@ -73,13 +73,13 @@ const ModifyMessage = () => {
             <div>
                 {campaign ? (
                     <section className='flex flex-col items-center'>
-                        <div className='bg-white max-w-[30%]'>
+                        <div className='bg-white w-[800px]'>
                             <h2>{campaign.campaignName}</h2>
                             <p className='text-black mb-8'>Current message: <pre>{campaign.message}</pre></p>
                         </div>
-                        <div className='bg-black flex items-center gap-2 p-6 rounded-xl w-1/3'>
+                        <div className='bg-black flex flex-col items-center gap-2 p-6 rounded-xl w-full'>
                             <textarea
-                                className='bg-white min-h-60 w-96 border border-black rounded-lg p-2'
+                                className='bg-white min-h-60 w-full border border-black rounded-lg p-2'
                                 value={newMessage}
                                 onChange={(e) => setNewMessage(e.target.value)}
                                 placeholder="New message"

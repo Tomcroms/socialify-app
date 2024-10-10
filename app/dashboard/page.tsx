@@ -56,7 +56,7 @@ const Dashboard = () => {
             </section>
             <main className="flex-1 w-full flex overflow-hidden gap-4 px-6 pb-4">
                 <Summary last7DaysSentMessages={last7DaysSentMessages} last7DaysConversations={last7DaysConversations} />
-                <Accounts instagramAccounts={instagramAccounts}/>
+                {/* <Accounts instagramAccounts={instagramAccounts}/> */}
             </main>
         </div>
                 

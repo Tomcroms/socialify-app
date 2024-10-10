@@ -14,7 +14,7 @@ interface FormState {
     followersMin: number | null;
     followersMax: number | null;
     nbMessages: number;
-    subscriptionDuration: string;
+    subscriptionDuration: number;
     price: number | null;
 }
 
@@ -32,7 +32,7 @@ const CampaignForm = () => {
         followersMin: null,
         followersMax: null,
         nbMessages: 1000,
-        subscriptionDuration: '3months',
+        subscriptionDuration: 3,
         price: null
     });
 
@@ -62,7 +62,7 @@ const CampaignForm = () => {
     };
 
     const calculatePrice = () => {
-        const pricePerMessage = formState.subscriptionDuration === '3months' ? 0.4 : 0.3;
+        const pricePerMessage = formState.subscriptionDuration === 3 ? 0.4 : 0.3;
         return formState.nbMessages * pricePerMessage;
     };
 
@@ -220,9 +220,9 @@ const CampaignForm = () => {
                                 type="radio"
                                 id="3months"
                                 name="subscriptionDuration"
-                                value="3months"
+                                value={3}
                                 onChange={handleChange}
-                                checked={formState.subscriptionDuration === '3months'}
+                                checked={formState.subscriptionDuration === 3}
                                 className="ml-4"
                             />  
                         </div>
@@ -233,9 +233,9 @@ const CampaignForm = () => {
                                 type="radio"
                                 id="6months"
                                 name="subscriptionDuration"
-                                value="6months"
+                                value={6}
                                 onChange={handleChange}
-                                checked={formState.subscriptionDuration === '6months'}
+                                checked={formState.subscriptionDuration === 6}
                                 className="ml-4"
                             />  
                         </div>

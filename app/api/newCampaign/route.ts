@@ -10,7 +10,7 @@ interface CampaignCreateData {
   campaignKeyWords: string[];
   followersMin?: number;
   followersMax?: number;
-  campaignDuration: string;
+  campaignDuration: number;
   campaignPrice: number;
   nbMessages: number;
 }

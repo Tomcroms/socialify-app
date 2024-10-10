@@ -2,9 +2,13 @@ import prisma from "@/app/libs/prismadb";
 import getCurrentUser from '@/app/actions/getCurrentUser';
 
 const getConversations = async (selectedCampaignId: string | null) => {
-    const currentUser = await getCurrentUser();
-    if(!currentUser?.id) {
-        return [];
+    // const currentUser = await getCurrentUser();
+    // if(!currentUser?.id) {
+    //     return [];
+    // }
+
+    if(!selectedCampaignId){
+        return []
     }
 
     try{
@@ -13,9 +17,9 @@ const getConversations = async (selectedCampaignId: string | null) => {
                 lastMessageAt: "desc"
             },
             where: {
-                userIds: {
-                    has: currentUser.id
-                },
+                // userIds: {
+                //     has: currentUser.id
+                // },
                 campaignId: selectedCampaignId
             },
             include: {

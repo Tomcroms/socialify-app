@@ -25,12 +25,14 @@ const Body: React.FC<BodyProps> = ({ initialMessages = [], currentUser }) => {
 
   useEffect(() => {
     const handleNewMessage = (message: FullMessageType) => {
+      console.log('New message received:', message);
       axios.post(`/api/conversations/${conversationId}/seen`);
       setMessages((current) => (find(current, { id: message.id }) ? current : [...current, message]));
       bottomRef.current?.scrollIntoView();
     };
 
     const handleUpdateMessage = (newMessage: FullMessageType) => {
+      console.log('New message update:', newMessage);
       setMessages((messages) => messages.map((current) => (current.id === newMessage.id ? newMessage : current)));
     };
 
