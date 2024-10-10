@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { usePathname } from 'next/navigation';
 import { InstagramAccount } from "@prisma/client";
@@ -20,16 +20,13 @@ interface Campaign {
 
 const CampaignActions = () => {
     const router = useRouter();
-
     const pathname = usePathname();
     const [id, setId] = useState<string | null>(null);
     
     const [campaign, setCampaign] = useState<Campaign | null>(null);
     const [countOfInstagramAccounts, setCountOfInstagramAccounts] = useState<number>(0);
     const [instagramAccounts, setInstagramAccounts] = useState<InstagramAccount[]>([]);
-
-    const [countOfTargets, setCountOfTargets] = useState<Number>(0)
-
+    const [countOfTargets, setCountOfTargets] = useState<number>(0);
     const [notFound, setNotFound] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -38,20 +35,10 @@ const CampaignActions = () => {
         const pathParts = pathname.split('/');
         const pathId = pathParts[pathParts.length - 1];
         setId(pathId);
-        
     }, [pathname]);
 
-    // Fetch campaign details and Instagram accounts
-    useEffect(() => {
-        if (id) {
-            fetchCampaign();
-            fetchCountOfInstagramAccounts();
-            fetchInstagramAccounts();
-            fetchCountOfTargets();
-        }
-    }, [id]);
-
-    const fetchCampaign = async () => {
+    // Memoize fetch functions to avoid recreating them on every render
+    const fetchCampaign = useCallback(async () => {
         try {
             const response = await axios.post('/api/getCampaignById', {
                 campaignId: id,
@@ -69,9 +56,9 @@ const CampaignActions = () => {
             setCampaign(null);
             setNotFound(true);
         }
-    };
+    }, [id]);
 
-    const fetchInstagramAccounts = async () => {
+    const fetchInstagramAccounts = useCallback(async () => {
         if (id) {
             try {
                 const response = await axios.post('/api/getInstagramAccountsByCampaignId', {
@@ -85,9 +72,9 @@ const CampaignActions = () => {
                 console.error('Error fetching Instagram accounts', error);
             }
         }
-    };
+    }, [id]);
 
-    const fetchCountOfInstagramAccounts = async () => {
+    const fetchCountOfInstagramAccounts = useCallback(async () => {
         if (id) {
             try {
                 const response = await axios.post('/api/getNumberOfInstagramAccountsByCampaignId', {
@@ -101,22 +88,32 @@ const CampaignActions = () => {
                 console.error('Error fetching Instagram accounts', error);
             }
         }
-    };
+    }, [id]);
 
-    const fetchCountOfTargets = async () => {
-        if(id){
-            try{
-                const response = await axios.post('/api/getNumberOfTargetsByCampaignId',{
+    const fetchCountOfTargets = useCallback(async () => {
+        if (id) {
+            try {
+                const response = await axios.post('/api/getNumberOfTargetsByCampaignId', {
                     campaignId: id,
                 });
-                if(response.status == 200) {
-                    setCountOfTargets(response.data.count)
+                if (response.status === 200) {
+                    setCountOfTargets(response.data.count);
                 }
-            }catch (error) {
+            } catch (error) {
                 console.error('Error fetching count of targets', error);
             }
         }
-    };
+    }, [id]);
+
+    // Fetch campaign details and Instagram accounts
+    useEffect(() => {
+        if (id) {
+            fetchCampaign();
+            fetchCountOfInstagramAccounts();
+            fetchInstagramAccounts();
+            fetchCountOfTargets();
+        }
+    }, [id, fetchCampaign, fetchCountOfInstagramAccounts, fetchInstagramAccounts, fetchCountOfTargets]);
 
     const handleAutomaticAttribution = async () => {
         if (id) {
@@ -131,8 +128,6 @@ const CampaignActions = () => {
                     console.log('Instagram accounts linked:', data);
 
                     // Refresh the list of Instagram accounts
-                    //await fetchInstagramAccounts();
-
                     await fetchCountOfInstagramAccounts();
 
                     // Display a success message
@@ -167,34 +162,33 @@ const CampaignActions = () => {
     };
 
     const handleClickTerminateCampaign = async () => {
-        if(id){
-            try{
+        if (id) {
+            try {
                 const response = await axios.post('/api/terminateCampaignById', {
                     campaignId: id,
                 });
 
-                if(response.status === 200) {
-                    alert("Successfuly terminated campaign!")
+                if (response.status === 200) {
+                    alert("Successfully terminated campaign!");
                 }
-            }catch (error) {
-                alert('Error')
+            } catch (error) {
+                alert('Error');
                 console.error('Error fetching Instagram accounts', error);
             }
-        }
-        else{
+        } else {
             console.log("No id available");
         }
     };
 
     const getStatusClass = (status: string | null) => {
-        switch(status?.toLowerCase()) {
-          case 'working':
-            return 'bg-green-500'; // Vert pour 'working'
-          case 'banned':
-            return 'bg-black'; // Noir pour 'banned'
-          // Ajoutez d'autres cas si nécessaire
-          default:
-            return 'bg-gray-200'; // Couleur par défaut
+        switch (status?.toLowerCase()) {
+            case 'working':
+                return 'bg-green-500'; // Vert pour 'working'
+            case 'banned':
+                return 'bg-black'; // Noir pour 'banned'
+            // Ajoutez d'autres cas si nécessaire
+            default:
+                return 'bg-gray-200'; // Couleur par défaut
         }
     };
       
@@ -240,7 +234,7 @@ const CampaignActions = () => {
                         <div><p>No account found for this campaign</p></div>
                     ) : (
                         instagramAccounts.map((instagramAccount) => (
-                            <div className={`${getStatusClass(instagramAccount.status)} p-2 mt-2 rounded-sm`}>
+                            <div key={instagramAccount.id} className={`${getStatusClass(instagramAccount.status)} p-2 mt-2 rounded-sm`}>
                                 <div className="flex items-center"><p>Username: </p><strong className="text-sm">{instagramAccount.username}</strong></div>
                                 <div className="flex items-center"><p>Followers: </p><strong className="text-sm">{instagramAccount.followers}</strong></div>
                                 <div className="flex items-center"><p>Following: </p><strong className="text-sm">{instagramAccount.following}</strong></div>
