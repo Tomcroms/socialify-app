@@ -106,7 +106,8 @@ export async function POST(
 
     return NextResponse.json(newConversation)
     
-  } catch (error) {
+  }catch (error: any) {
+    console.error("API Error:", error.message, error.stack);  // Log the error details
     return new NextResponse('Internal Error', { status: 500 });
   }
 }
