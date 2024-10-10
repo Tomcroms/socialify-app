@@ -94,6 +94,7 @@ export async function POST(request: Request) {
     return NextResponse.json(newMessage);
   } catch (error) {
     console.log(error, 'ERROR_MESSAGES');
-    return new NextResponse('Error', { status: 500 });
+    console.error('Error creating new message:', error);
+    return new NextResponse('Database error', { status: 500 });
   }
 }
