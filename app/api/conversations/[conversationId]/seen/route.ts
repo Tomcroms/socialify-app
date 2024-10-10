@@ -13,9 +13,12 @@ export async function POST(
     { params } : { params: IParams }
 ) {
     try {
+        
         const currentUser = await getCurrentUser();
         const { conversationId } = params;
-
+        if (!conversationId) {
+            return new NextResponse("Conversation ID is missing", { status: 400 });
+        }        
         if (!currentUser?.id || !currentUser?.email) {
             return new NextResponse("Unauthorized", { status: 401 });
         }
