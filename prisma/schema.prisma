@@ -19,7 +19,7 @@ model User{
     image String?
     hashedPassword String?
     createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+    updatedAt DateTime @default(now())
 
     campaignIds String[] @db.ObjectId
     campaign Campaign[] @relation(fields: [campaignIds], references: [id])
@@ -30,27 +30,7 @@ model User{
     seenMessageIds String[] @db.ObjectId
     seenMessages Message[] @relation("Seen", fields: [seenMessageIds], references: [id])
 
-    accounts Account[]
     messages Message[]
-}
-
-model Account{
-    id String @id @default(auto()) @map("_id") @db.ObjectId
-    userId String @db.ObjectId
-    type String
-    provider String
-    providerAccountId String
-    refresh_token String? @db.String
-    access_token String? @db.String
-    expires_at Int?
-    token_type String?
-    scope String?
-    id_token String? @db.String
-    session_state String?
-
-    user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-    @@unique([provider, providerAccountId])
 }
 
 model Conversation{
@@ -73,7 +53,6 @@ model Conversation{
 
     instagramAccountId String? @db.ObjectId
     instagramAccount InstagramAccount? @relation(fields: [instagramAccountId], references: [id])
-
 }
 
 model Message{
@@ -83,6 +62,7 @@ model Message{
     createdAt DateTime @default(now())
     onInstagram Boolean?
     firstMessage Boolean?
+    isSent Boolean?            //indique si le message a été envoyé ou reçu 
 
     campaignId String? @db.ObjectId
     seenIds String[] @db.ObjectId
@@ -94,9 +74,7 @@ model Message{
     senderId String @db.ObjectId
     sender User @relation(fields: [senderId], references: [id], onDelete: Cascade) 
 
-
 }
-
 
 model Campaign{
     id String @id @default(auto()) @map("_id") @db.ObjectId
@@ -134,7 +112,7 @@ model Campaign{
 model InstagramAccount {
     id              String   @id @default(auto()) @map("_id") @db.ObjectId
     campaignId      String?  @db.ObjectId
-    campaign   Campaign? @relation(fields: [campaignId], references: [id])
+    campaign        Campaign? @relation(fields: [campaignId], references: [id])
     conversationIds String[] @db.ObjectId
     updatedAt       DateTime?
     username        String?
@@ -156,7 +134,6 @@ model InstagramAccount {
     conversations Conversation[]
     sentMessages SentMessage[]
 }
-
 
 
 model SentMessage {

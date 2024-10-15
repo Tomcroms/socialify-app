@@ -1,22 +1,14 @@
 import prisma from "@/app/libs/prismadb";
 import getCurrentUser from '@/app/actions/getCurrentUser';
 
-const getConversations = async (currentCampaignId: string) => {
-    const currentUser = await getCurrentUser();
-
-    if(!currentUser?.id) {
-        return [];
-    }
-
+const getConversationsByCampaignId = async (currentCampaignId: string) => {
     try{
+        console.log(currentCampaignId)
         const conversations = await prisma.conversation.findMany({
             orderBy: {
                 lastMessageAt: "desc"
             },
             where: {
-                userIds: {
-                    has: currentUser.id
-                },
                 campaignId: currentCampaignId
             },
             include: {
@@ -24,17 +16,18 @@ const getConversations = async (currentCampaignId: string) => {
                 messages: {
                     include: {
                         sender: true,
-                        seen: true
+                        //seen: true
                     }
                 }
             }
         })
-
+        
         return conversations;
         
     } catch (error: any) {
+        console.log(error)
         return [];
     }
 }
 
-export default getConversations;
+export default getConversationsByCampaignId;
